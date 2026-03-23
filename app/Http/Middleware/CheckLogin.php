@@ -16,8 +16,8 @@ class CheckLogin
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->is('auth', 'auth/*')) {
-            if (session('is_logged_in')) {
-                return redirect('/')->with('success', 'Bạn đã đăng nhập rồi!');
+            if (session('is_logged_in')==true && $request->is('auth/login')) {
+                return redirect('/danh-muc/create')->with('success', 'Bạn đã đăng nhập rồi!');
             }
 
             return $next($request);

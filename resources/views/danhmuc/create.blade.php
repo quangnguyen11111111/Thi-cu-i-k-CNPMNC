@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Them moi Danh muc</title>
     @vite('resources/css/app.css')
 </head>
+
 <body class="bg-gray-100 min-h-screen py-10 px-4">
     <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h1 class="text-2xl font-bold mb-6">Them moi Danh muc</h1>
+        <h1 class="text-2xl font-bold mb-6">Thêm mới Danh mục</h1>
 
         @if (session('success'))
             <div class="mb-4 rounded-md bg-green-100 border border-green-200 text-green-700 px-4 py-3">
                 {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('warning'))
+            <div class="mb-4 rounded-md bg-yellow-100 border border-yellow-200 text-yellow-800 px-4 py-3">
+                {{ session('warning') }}
             </div>
         @endif
 
@@ -30,46 +38,37 @@
             @csrf
 
             <div>
-                <label for="madanhmuc" class="block text-sm font-medium text-gray-700">Ma danh muc</label>
-                <input
-                    type="text"
-                    id="madanhmuc"
-                    name="madanhmuc"
-                    value="{{ old('madanhmuc') }}"
-                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                >
+                <label for="madanhmuc" class="block text-sm font-medium text-gray-700">Mã danh mục</label>
+                <input type="text" id="madanhmuc" name="madanhmuc" value="{{ old('madanhmuc') }}"
+                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
             </div>
 
             <div>
-                <label for="tendanhmuc" class="block text-sm font-medium text-gray-700">Ten danh muc</label>
-                <input
-                    type="text"
-                    id="tendanhmuc"
-                    name="tendanhmuc"
-                    value="{{ old('tendanhmuc') }}"
-                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                >
+                <label for="tendanhmuc" class="block text-sm font-medium text-gray-700">Tên danh mục</label>
+                <input type="text" id="tendanhmuc" name="tendanhmuc" value="{{ old('tendanhmuc') }}"
+                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
             </div>
 
             <div>
-                <label for="mota" class="block text-sm font-medium text-gray-700">Mo ta</label>
-                <textarea
-                    id="mota"
-                    name="mota"
-                    rows="5"
-                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                >{{ old('mota') }}</textarea>
+                <label for="mota" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                <textarea id="mota" name="mota" rows="5"
+                    class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('mota') }}</textarea>
             </div>
 
-            <div class="pt-2">
-                <button
-                    type="submit"
-                    class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
-                >
-                    Luu Danh muc
+            <div class="pt-2 flex items-center gap-3 ">
+                <button type="submit"
+                    class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">
+                    Lưu Danh mục
                 </button>
+                <div class="">
+                    <a href="{{ route('tailieu.index') }}"
+                        class="inline-flex items-center rounded-md bg-gray-700 px-4 py-2 text-white hover:bg-gray-800">
+                        Xem danh sach Tai lieu
+                    </a>
+                </div>
             </div>
         </form>
     </div>
 </body>
+
 </html>

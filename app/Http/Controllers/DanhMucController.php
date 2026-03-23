@@ -17,21 +17,22 @@ class DanhMucController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'madanhmuc' => ['required', 'string', 'max:50'],
+            'madanhmuc' => ['required', 'unique:danhmucs,madanhmuc', 'string', 'max:50'],
             'tendanhmuc' => ['required', 'string', 'max:255'],
             'mota' => ['required', 'string'],
         ], [
-            'madanhmuc.required' => 'Vui long nhap ma danh muc.',
-            'madanhmuc.max' => 'Ma danh muc khong duoc vuot qua 50 ky tu.',
-            'tendanhmuc.required' => 'Vui long nhap ten danh muc.',
-            'tendanhmuc.max' => 'Ten danh muc khong duoc vuot qua 255 ky tu.',
-            'mota.required' => 'Vui long nhap mo ta.',
+            'madanhmuc.required' => 'Vui lòng nhập mã danh mục.',
+            'madanhmuc.unique' => 'Mã danh mục đã tồn tại.',
+            'madanhmuc.max' => 'Mã danh mục không được vượt quá 50 ký tự.',
+            'tendanhmuc.required' => 'Vui lòng nhập tên danh mục.',
+            'tendanhmuc.max' => 'Tên danh mục không được vượt quá 255 ký tự.',
+            'mota.required' => 'Vui lòng nhập mô tả.',
         ]);
 
         DanhMuc::create($validated);
 
         return redirect()
             ->route('danhmuc.create')
-            ->with('success', 'Them moi danh muc thanh cong.');
+            ->with('success', 'Thêm mới danh mục thành công.');
     }
 }

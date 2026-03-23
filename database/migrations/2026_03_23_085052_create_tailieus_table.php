@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up(): void
-{
-    Schema::create('tailieus', function (Blueprint $table) {
-        $table->id();
-        $table->string('matailieu',50);
-        $table->string('tentailieu',255);
-        $table->longText('tomtat')->nullable();
-        $table->string('madanhmuc',50);
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('tailieus', function (Blueprint $table) {
+            $table->id();
+            $table->string('matailieu', 50)->unique();
+            $table->string('tentailieu', 255);
+            $table->longText('tomtat')->nullable();
+            $table->string('madanhmuc', 50);
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

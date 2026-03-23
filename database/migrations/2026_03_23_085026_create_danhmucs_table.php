@@ -9,16 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
-{
-    Schema::create('danhmucs', function (Blueprint $table) {
-        $table->id();
-        $table->string('madanhmuc',50);
-        $table->string('tendanhmuc',255);
-        $table->longText('mota')->nullable();
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('danhmucs', function (Blueprint $table) {
+            $table->id();
+            $table->string('madanhmuc', 50)->unique();
+            $table->string('tendanhmuc', 255);
+            $table->longText('mota')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

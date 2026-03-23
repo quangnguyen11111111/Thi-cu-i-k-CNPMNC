@@ -23,4 +23,10 @@ class AuthController extends Controller
             return redirect('/auth/login')->with('error', 'Sai tên đăng nhập hoặc mật khẩu!');
         }
     }
+    public function logout()
+    {
+        session(['is_logged_in' => false]);
+
+        return redirect('/auth/login')->with('success', 'Đăng xuất thành công!');
+    }
 }
