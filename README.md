@@ -1,3 +1,14 @@
+### Hướng dẫn sử dụng:
+Sau khi tải xuống phải chạy lệnh:
+
+php artisan migrate
+ để tạo dữ liệu 
+Sau đó chạy lệnh 
+npm install
+npm run build
+ composer run dev
+ 
+ ### đề thi
 Đề số 1 
 PHẦN 1 (2 điểm)
 
