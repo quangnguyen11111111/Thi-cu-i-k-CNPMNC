@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class DanhMuc extends Model
 {
-    //
-        public function danhmucs()
-{    return $this->hasMany(TaiLieu::class,'madanhmuc','madanhmuc');}
+    protected $table = 'danhmucs';
+
+    protected $fillable = [
+        'madanhmuc',
+        'tendanhmuc',
+        'mota',
+    ];
+
+    public function taiLieus()
+    {
+        return $this->hasMany(TaiLieu::class, 'madanhmuc', 'madanhmuc');
+    }
 }

@@ -1,15 +1,20 @@
 ### Hướng dẫn sử dụng:
-Sau khi tải xuống phải chạy lệnh:
 
+Sau khi tải xuống phải chạy lệnh:
+composer install
+Hãy chắc chắn đã bật ;extension=zip trong php.ini
 php artisan migrate
- để tạo dữ liệu 
-Sau đó chạy lệnh 
+để tạo dữ liệu
+cp .env.example .env
+php artisan key:generate
+Sau đó chạy lệnh
 npm install
 npm run build
- composer run dev
- 
- ### đề thi
-Đề số 1 
+composer run dev
+
+### đề thi
+
+Đề số 1
 PHẦN 1 (2 điểm)
 
 Sinh viên thực hiện các yêu cầu sau:
@@ -18,7 +23,7 @@ a. Tạo project Laravel
 
 Tên project phải theo định dạng:
 
-<tên + chữ cái đầu của họ + chữ cái đầu của tên đệm>_MSSV_CK
+<tên + chữ cái đầu của họ + chữ cái đầu của tên đệm>\_MSSV_CK
 
 Ví dụ:
 
@@ -29,7 +34,7 @@ Tạo database và kết nối với project Laravel.
 
 Tên database cũng theo định dạng:
 
-<tên + chữ cái đầu của họ + chữ cái đầu của tên đệm>_MSSV_CK
+<tên + chữ cái đầu của họ + chữ cái đầu của tên đệm>\_MSSV_CK
 
 Ví dụ:
 
@@ -39,18 +44,18 @@ c. Sử dụng Migration tạo bảng
 Tạo 2 bảng sau:
 
 Bảng Danhmuc
-Field	Kiểu dữ liệu
-id	primary key
-madanhmuc	string(50)
-tendanhmuc	string(255)
-mota	longText
+Field Kiểu dữ liệu
+id primary key
+madanhmuc string(50)
+tendanhmuc string(255)
+mota longText
 Bảng TaiLieu
-Field	Kiểu dữ liệu
-id	primary key
-matailieu	string(50)
-tentailieu	string(255)
-tomtat	longText
-madanhmuc	string(50)
+Field Kiểu dữ liệu
+id primary key
+matailieu string(50)
+tentailieu string(255)
+tomtat longText
+madanhmuc string(50)
 PHẦN 2 (8 điểm)
 
 Xây dựng các chức năng sau trên project Laravel đã tạo.

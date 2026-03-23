@@ -6,9 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class TaiLieu extends Model
 {
-    //
-    public function tailieus()
-{
-    return $this->hasMany(TaiLieu::class,'madanhmuc','madanhmuc');
-}
+    protected $table = 'tailieus';
+
+    protected $fillable = [
+        'matailieu',
+        'tentailieu',
+        'tomtat',
+        'madanhmuc',
+    ];
+
+    public function danhMuc()
+    {
+        return $this->belongsTo(DanhMuc::class, 'madanhmuc', 'madanhmuc');
+    }
 }
